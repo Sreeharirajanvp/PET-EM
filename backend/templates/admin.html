@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card"><br>
+                <div class="card-body">
+                  <h4>Add Admin info.</h4>
+                  <br>
+                  <form class="forms-sample" method="post" action="{% url 'saveadmin' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group">
+                      <label for="exampleInputName1">Name</label>
+                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="name">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail3">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email" name="email">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword4">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password" name="password">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword4">Confirm Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword" placeholder="Confirm Password " name="confirm">
+                    </div>
+
+                    <div class="form-group">
+                      <label>Upload Profile</label>
+                      <div class="input-group col-xs-12">
+                        <input type="file" class="form-control file-upload-info"  placeholder="Upload Image" name="image">
+                        <span class="input-group-append">
+
+                        </span>
+                      </div>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+                </div>
+              </div>
+</body>
+</html>
+{% endblock %}

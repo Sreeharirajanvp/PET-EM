@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% extends "index.html" %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card">
+                <div class="card-body"><br>
+                  <h4>ORDER DETAILS</h4>
+                  <br>
+                  <div class="table-responsive pt-3">
+                    <table class="table table-dark">
+                      <thead>
+                        <tr>
+                          <th>
+                            First Name
+                          </th>
+                          <th>
+                            Last name
+                          </th>
+                          <th>
+                            Email
+                          </th>
+                          <th>
+                            Address
+                          </th>
+                          <th>
+                            Country
+                          </th>
+                          <th>
+                            State
+                          </th>
+                          <th>
+                            Pin
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for d in data %}
+                        <tr>
+                          <td>
+                            {{d.Fname}}
+                          </td>
+                          <td>
+                            {{d.Lname}}
+                          </td>
+                          <td>
+                            {{d.Email}}
+                          </td>
+
+                          <td>
+                            {{d.Address}}
+                          </td>
+                          <td>
+                            {{d.Country}}
+                          </td>
+                          <td>
+                            {{d.State}}
+                          </td>
+                          <td>
+                            {{d.Pin}}
+                          </td>
+                      <td>
+                        <form action="{% url 'delckeckout' dataid=d.id%}">
+                          <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                      </td>
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% extends "index.html" %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card">
+                <div class="card-body"><br>
+                  <h4>Admin info.</h4>
+                  <br>
+                  <div class="table-responsive pt-3">
+                    <table class="table table-dark">
+                      <thead>
+                        <tr>
+                          <th>
+                            Name
+                          </th>
+                          <th>
+                            Email
+                          </th>
+                          <th>
+                            Password
+                          </th>
+                          <th>
+                            Image
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      {% for d in data %}
+                        <tr>
+                          <td>
+                            {{d.Name}}
+                          </td>
+                          <td>
+                            {{d.Email}}
+                          </td>
+                          <td>
+                            {{d.Password}}
+                          </td>
+                          <td>
+                           <img src="{{ d.Image.url }}">
+                          </td>
+                          <td>
+                          <form action="{% url 'editadmin' dataid=d.id%}">
+                          <button type="submit" class="btn btn-success">Edit</button>
+                        </form>
+                          </td>
+                      <td>
+                        <form action="{% url 'deleteadmin' dataid=d.id%}">
+                          <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                      </td>
+                        </tr>
+                      {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+</body>
+</html>
+{% endblock %}
